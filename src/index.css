@@ -1,69 +1,109 @@
+/* Tailwind CSS Import */
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Responsive styling */
+@media (max-width: 640px) {
+  a.active {
+    background-color: black;
+    color: white;
+  }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #e53e3e; /* Darker shade of red */
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
+/* Define custom font families */
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+/* Base body styling */
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Heading font styling */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Utility classes for custom fonts */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Base font-size responsive system */
+:root {
+  --base-font-size: 12px;
+  font-size: var(--base-font-size);
+}
+
+/* Font size adjustments for different elements */
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.25rem; }
+p, span, a, button, input, select { font-size: 1rem; }
+small { font-size: 0.875rem; }
+
+/* Font-size adjustments for smaller screens */
+@media screen and (max-width: 768px) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --base-font-size: 10px;
   }
-  a:hover {
-    color: #747bff;
+}
+
+/* Container constraints to prevent extreme spreading */
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Prevent text from getting too large on larger screens */
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1280px;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+/* Ensure minimum heights don't break with larger fonts */
+.min-h-100px {
+  min-height: 6.25rem; /* 100px in rem */
+}
+
+/* Font size adjustment class for components that need special handling */
+.font-size-adjust {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Button and control scaling */
+button, input, select {
+  line-height: 1.5;
+}
+
+/* Ensure SVG icons scale with text */
+svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
 }
